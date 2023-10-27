@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <style>
+            #content {
+                text-align: left;
+            }
+            #paragraph {
+                padding: 2px;
+                border: 5px solid black;
+            }
+        </style>
+       
+    </head>
+    <body>
+        <h1>EECS 348 Lab Seven Practice Two</h1>
+        <div id="content">
+            <p id="paragraph">Paragraph to be altered.</p>
+            <label for="borderRed">Border R(0-255):</label>
+            <input type="text" id="borderRed" min="0" max="255">
+            <br></br>
+            <label for="borderGreen">Border G(0-255):</label>
+            <input type="text" id="borderGreen" min="0" max="255">
+            <br></br>
+            <label for="borderBlack">Border B(0-255):</label>
+            <input type="text" id="borderBlack" min="0" max="255">
+            <br></br>
+            <label for="borderWidthInput">Border Width:</label>
+            <input type="text" id="borderWidthInput" min="0">
+            <br></br>
+            <label for="backgroundRed">Background R(0-255):</label>
+            <input type="text" id="backgroundRed" min="0" max="255">
+            <br></br>
+            <label for="backgroundGreen">Background G(0-255):</label>
+            <input type="text" id="backgroundGreen" min="0" max="255">
+            <br></br>
+            <label for="backgroundBlack">Background B(0-255):</label>
+            <input type="text" id="backgroundBlack" min="0" max="255">
+            <br></br>
+            <button onclick="updateParagraph()">Apply changes</button>
+        </div>
+        <script>
+            function updateParagraph() {
+                const paragraph = document.getElementById("paragraph");
+                const borderWidth = document.getElementById("borderWidthInput").value + "px";
+                const borderR = document.getElementById("borderRed").value;
+                const borderG = document.getElementById("borderGreen").value;
+                const borderB = document.getElementById("borderBlack").value;
+                const backgroundR = document.getElementById("backgroundRed").value;
+                const backgroundG = document.getElementById("backgroundGreen").value;
+                const backgroundB = document.getElementById("backgroundBlack").value;
+
+                paragraph.style.borderColor = `rgb(${borderR}, ${borderG}, ${borderB})`;
+                paragraph.style.borderWidth = borderWidth;
+                paragraph.style.backgroundColor = `rgb(${backgroundR}, ${backgroundG}, ${backgroundB})`;
+            }
+        </script>
+        </script>
+    </body>
+</html>

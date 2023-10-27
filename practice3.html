@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>EECS 348 Lab Seven Practice Four</h1>
+        <form method="post">
+            <label for="number">Size of multiplication table:</label>
+            <input type="text" name="number" min="1" required>
+            <input type="submit">
+        </form>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $number = $_POST["number"];
+            echo "<table border='1'>";
+            echo "<tr><th></th>";
+   
+            for ($col = 1; $col <= $number; $col++) {
+                echo "<td>$col</td>";
+            }
+            echo "</tr>";
+   
+            for ($row = 1; $row <= $number; $row++) {
+                echo "<td>$row</td>";
+                for ($col = 1; $col <= $number; $col++) {
+                    $result = $row * $col;
+                    echo "<td>$result</td>";
+                }
+                echo "</tr>";
+            }
+   
+            echo "</table>";
+        }
+
+        ?>
+        </form>
+    </body>
+</html>
