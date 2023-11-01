@@ -1,40 +1,31 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
     <body>
-        <h1>EECS 348 Lab Seven Practice Four</h1>
-        <form method="post">
-            <label for="number">Size of multiplication table:</label>
-            <input type="text" name="number" min="1" required>
-            <input type="submit">
-        </form>
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $number = $_POST["number"];
-            echo "<table border='1'>";
-            echo "<tr><th></th>";
-   
-            for ($col = 1; $col <= $number; $col++) {
-                echo "<td>$col</td>";
-            }
-            echo "</tr>";
-   
-            for ($row = 1; $row <= $number; $row++) {
-                echo "<td>$row</td>";
-                for ($col = 1; $col <= $number; $col++) {
-                    $result = $row * $col;
-                    echo "<td>$result</td>";
-                }
-                echo "</tr>";
-            }
-   
-            echo "</table>";
-        }
+        <h1>EECS 348 Lab Seven Practice Three</h1>
+        <script>
+            function checkPassword() {
+                var password1 = document.getElementById('password1').value;
+                var password2 = document.getElementById('password2').value;
 
-        ?>
+                if (password1.length < 8 || password2.length < 8) {
+                    alert("Passwords must be at least 8 characters long.");
+                } else if (password1 !== password2) {
+                    alert("Passwords do not match. Please try again.");
+                } else {
+                    alert("Passwords match!");
+                }
+            }
+        </script>
+
+        <form>
+            <label for="password1">First Password:</label>
+            <input type="text" id="password1" required><br><br>
+
+            <label for="password2">Second Password:</label>
+            <input type="text" id="password2" required><br><br>
+
+            <button type="button" onclick="checkPassword()">Validate Your Passwords</button>
         </form>
     </body>
 </html>
